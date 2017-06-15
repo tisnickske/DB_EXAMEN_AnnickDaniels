@@ -1,0 +1,8 @@
+Ga naar website https://rest.ensembl.org/
+Zoek de juiste methode. Heb ik gedaan adhv Ctr-F > zoekwoorden 'mapping' en 'variant'.
+
+curl 'http://rest.ensembl.org/variation/mus_musculus/rs4224828?' -H 'Content-type:application/json'
+
+{"source":"Variants (including SNPs and indels) imported from dbSNP","mappings":[{"location":"4:136443949-136443949","assembly_name":"GRCm38","end":136443949,"seq_region_name":"4","strand":1,"coord_system":"chromosome","allele_string":"T/C","start":136443949}],"name":"rs4224828","MAF":null,"ambiguity":"Y","var_class":"SNP","synonyms":[],"evidence":["Multiple_observations","Frequency"],"ancestral_allele":null,"minor_allele":null,"most_severe_consequence":"3_prime_UTR_variant"}
+
+De lokatie is dus 4:136443949-136443949.
