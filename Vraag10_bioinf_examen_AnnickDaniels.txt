@@ -1,0 +1,12 @@
+select gene_name, (seq_region_end - seq_region_start + 1) as size from gene order by size desc limit 1;
++-----------+---------+
+| gene_name | size    |
++-----------+---------+
+| TMPRSS3   | 5379014 |
++-----------+---------+
+
+select count(*) from exon; > 642590
+
+select count(*) from exon_transcript; > 1178393
+
+Verklaring> exon_transcipt is een crossreference tabel, m.a.w. in dit geval wil dat zeggen dat een exon kan behoren tot meerdere transcripts en een transcript kan bestaan uit meerdere exonen.
