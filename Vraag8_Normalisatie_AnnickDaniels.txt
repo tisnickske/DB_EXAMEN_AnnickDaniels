@@ -1,0 +1,17 @@
+UNF
+Praktijk(PatientNr, PatientNaam, Geboortedatum, Adres (VoorschriftNummer, Medicijn, Dosering, DoktersNr, Dokter, Assistent(e)))
+
+1NF > verwijder berekende velden en verwijder zich herhalende velden. De zich herhalende velden zijn hier de patiëntengegevens. Primaire sleutels staan in hoofdletters.
+Praktijk(PATIENTNR, VOORSCHRIFTNR, Medicijn, Dosering, DoktersNr, Dokter, Assistent(e))
+Patient(PATIENTNR, PatientNaam, Geboortedatum, Adres)
+
+2NF > indien een niet-sleutelattribuut afhangt van slechts een gedeelte van de primaire sleutel, maak hiervan dan een aparte groep. Alle niet-sleutelattributen van de tabel Praktijk hangen in feite af van het voorschriftnr.
+Praktijk(PATIENTNR, VOORSCHRIFTNR)
+Patient(PATIENTNR, PatientNaam, Geboortedatum, Adres)
+Voorschrift(VOORSCHRIFTNR, Medicijn, Dosering, DoktersNr, Dokter, Assistent(e))
+
+3NF > niet-sleutelattributen mogen niet afhankelijk zijn van andere niet-sleutelattributen; indien wel > maak een aparte groep. In de tabel voorschrift hangen de attributen Dokter en Assistent(e) af van DoktersNr.
+Praktijk(PATIENTNR, VOORSCHRIFTNR)
+Patient(PATIENTNR, PatientNaam, Geboortedatum, Adres)
+Voorschrift(VOORSCHRIFTNR, Medicijn, Dosering, DoktersNr.)
+Dokter(DOKTERSNR, Dokter, Assistent(e))
