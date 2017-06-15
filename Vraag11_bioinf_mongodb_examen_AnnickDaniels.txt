@@ -1,0 +1,20 @@
+db.bioinf_mongo_examen.find({"method_of_admission":{$elemMatch: {"GEL;DENTAL"}}},{"drug": 1})
+
+
+db.bioinf_mongo_examen.aggregate( [
+   { $group:
+      {
+        _id: { company: "$company"},
+        sideeffects: { $sum: "$percentage_of_side_effects" }
+      }
+   },
+   { $sort: { sideeffects: 1 } },
+   { $group:
+      {
+        _id : "$_id.company",
+        biggest:   { $last: "$percentage_of_side_effects" },
+        smallest:  { $first: "$percentage_of_side_effects" }
+      }
+   },
+] )
+
